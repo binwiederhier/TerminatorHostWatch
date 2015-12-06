@@ -93,11 +93,9 @@ except ImportError:
 
 class HostWatch(plugin.Plugin):
     watches = {}
-    profiles = {}
     
     def __init__(self):
         self.watches = {}
-        self.profiles = Terminator().config.list_profiles()
         self.update_watches()
               
     def update_watches(self):
@@ -113,12 +111,13 @@ class HostWatch(plugin.Plugin):
         last_line = self.get_last_line(terminal)
 
         if last_line:
+            profiles = Terminator().config.list_profiles()
             patterns = self.get_patterns()
             for pattern in patterns:
                 match = re.match(pattern, last_line)
                 if match:
                     hostname = match.group(1)
-                    if hostname in self.profiles and hostname != terminal.get_profile():
+                    if hostname in profiles and hostname != terminal.get_profile():
                         dbg("switching to profile " + hostname + ", because line '" + last_line + "' matches pattern '" + pattern + "'")
                         terminal.set_profile(None, hostname, False)
                         break
