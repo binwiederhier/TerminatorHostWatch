@@ -29,8 +29,8 @@ DESCRIPTION
   against the regex "[^@]+@(\w+)" ((e.g. user@host).
 
 INSTALLATION
-  Put this .py in /usr/share/terminator/terminatorlib/plugins/hostWatch.py 
-  or ~/.config/terminator/plugins/hostWatch.py.
+  Put this .py in /usr/share/terminator/terminatorlib/plugins/host_watch.py 
+  or ~/.config/terminator/plugins/host_watch.py.
 
   Then create a profile in Terminator to match your hostname. If you have a
   server that displays 'user@myserver ~ $', for instance, create a profile
@@ -155,4 +155,4 @@ class HostWatch(plugin.Plugin):
             else:
                return [config['patterns']]
         else: 
-            return [r"[^@]+@(\w+)"]
+            return [r"[^@]+@([-\w]+)"]

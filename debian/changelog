@@ -1,3 +1,9 @@
+terminator-hostwatch (0.2.2) unstable; urgency=medium
+
+  * Allow dash in default regex 
+
+ -- Philipp Heckel <philipp.heckel@gmail.com>  Mon, 07 Dec 2015 14:00:50 +0000
+
 terminator-hostwatch (0.2.1) unstable; urgency=medium
 
   * Allow adding new profiles without restarting Terminator
